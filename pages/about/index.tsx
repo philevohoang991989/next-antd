@@ -2,8 +2,9 @@ import { Button, Checkbox, Form, Input } from "antd";
 import React from "react";
 import styles from "./styles.module.scss";
 import { authApi } from "@/api-client";
+import { AdminLayout } from "@/components/layout";
 
-export default function About() {
+export default function AboutPage() {
   const onFinish = async (values: any) => {
     console.log("Success:", values);
     const datalogin = await authApi.login(values)
@@ -60,3 +61,4 @@ export default function About() {
     </main>
   );
 }
+AboutPage.Layout = AdminLayout
