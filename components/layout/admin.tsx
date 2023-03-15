@@ -1,5 +1,6 @@
 import { LayoutProps } from '@/models'
 import Link from 'next/link'
+import { Auth } from '../common'
 // import { Auth } from '../common'
 
 export function AdminLayout({ children }: LayoutProps) {
@@ -15,7 +16,7 @@ export function AdminLayout({ children }: LayoutProps) {
 //     }
 //   }
   return (
-    <div>
+    <Auth>
       <h1>Admin Layout</h1>
       <div>Sidebar</div>
 
@@ -25,6 +26,6 @@ export function AdminLayout({ children }: LayoutProps) {
       <Link href='/'>Home</Link>
       <Link href='/about'>About</Link>
       <div>{children}</div>
-    </div>
+    </Auth>
   )
 }
