@@ -9,7 +9,7 @@ export default function Login () {
   const onFinish = async (values: any) => {
     console.log("Success:", values);
     const datalogin: any  = await authApi.login(values)
-    setCookie(storageKeys.accessToken, datalogin.accessToken );
+    setCookie(storageKeys.accessToken, datalogin.data.access_token );
   };
 
   const onFinishFailed = (errorInfo: any) => {

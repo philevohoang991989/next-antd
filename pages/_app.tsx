@@ -1,11 +1,13 @@
 import axiosClient from "@/api-client/axios-client";
 import { EmptyLayout } from "@/components/layout";
+import {Spin} from 'antd'
 import { CacheProvider } from "@emotion/react";
 import { AppPropsWithLayout } from "@/models";
 import "@/styles/globals.css";
 import "antd/dist/reset.css";
 import { SWRConfig } from "swr";
 import { createEmotionCache } from "@/utils";
+import { useEffect, useState } from "react";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -16,18 +18,30 @@ export default function App({
   emotionCache = clientSideEmotionCache,
 }: AppPropsWithLayout) {
   const Layout = Component.Layout ?? EmptyLayout;
-  return (
-    <CacheProvider value={emotionCache}>
-      <SWRConfig
-        value={{
-          fetcher: (url) => axiosClient.get(url),
-          shouldRetryOnError: false,
-        }}
-      >
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </SWRConfig>
-    </CacheProvider>
-  );
+  const [showChild, setShowChild] = useState(false);
+  useEffect(() => {
+    setShowChild(true);
+  }, []);
+
+  if (!showChild) {
+    return null;
+  }
+  if (typeof window === "undefined") {
+    return <Spin/>;
+  } else {
+    return (
+      <CacheProvider value={emotionCache}>
+        <SWRConfig
+          value={{
+            fetcher: (url) => axiosClient.get(url),
+            shouldRetryOnError: false,
+          }}
+        >
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </SWRConfig>
+      </CacheProvider>
+    );
+  }
 }

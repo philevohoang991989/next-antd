@@ -1,6 +1,8 @@
-import { useAuth } from '@/hooks'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import { storageKeys } from "@/constants/storage-keys";
+import { Spin } from "antd";
+import { getCookie } from 'cookies-next';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export interface AuthProps {
   children: any
@@ -8,15 +10,11 @@ export interface AuthProps {
 
 export function Auth({ children }: AuthProps) {
   const router = useRouter()
-  const [userProfile, setUserProfile] = useState({})
-  const { profile, firstLoading } = useAuth()
-  console.log({ profile })
+  let token = getCookie(storageKeys.accessToken)
 
   useEffect(() => {
-    if (!firstLoading && !profile?.username) router.push('/login')
-  }, [router, profile, firstLoading])
+    if (!token) router.push('/login')
+  }, [router, token])
 
-  if (!profile?.username) return <p>Loading...</p>
-
-  return <div>{children}</div>
+  return <div>{!token? <Spin size="large" style={{position:'absolute', top:'50%',left:'50%'}}/>:children}</div>
 }
