@@ -1,6 +1,6 @@
 import { authApi } from '@/api-client';
-import { Button, Checkbox, Form, Input } from 'antd';
-import React from 'react';
+import { EmptyLayout } from '@/components/layout';
+import { Button, Form, Input } from 'antd';
 
 export default function Login () {
   const onFinish = async (values: any) => {
@@ -53,3 +53,4 @@ export default function Login () {
     </main>
   );
 }
+Login.Layout = EmptyLayout
