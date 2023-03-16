@@ -1,14 +1,15 @@
 import { authApi } from '@/api-client';
+import { storageKeys } from "@/constants/storage-keys";
+import { getCookies, getCookie, setCookie, removeCookies } from 'cookies-next';
 import { EmptyLayout } from '@/components/layout';
 import { Button, Form, Input } from 'antd';
+import { useEffect } from 'react';
 
 export default function Login () {
   const onFinish = async (values: any) => {
     console.log("Success:", values);
     const datalogin: any  = await authApi.login(values)
-    localStorage.setItem('token', datalogin.accessToken)
-    console.log({datalogin});
-    
+    setCookie(storageKeys.accessToken, datalogin.accessToken );
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -53,4 +54,5 @@ export default function Login () {
     </main>
   );
 }
+
 Login.Layout = EmptyLayout
