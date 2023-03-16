@@ -1,13 +1,13 @@
 import axiosClient from "@/api-client/axios-client";
 import { EmptyLayout } from "@/components/layout";
-import {Spin} from 'antd'
-import { CacheProvider } from "@emotion/react";
 import { AppPropsWithLayout } from "@/models";
 import "@/styles/globals.css";
-import "antd/dist/reset.css";
-import { SWRConfig } from "swr";
 import { createEmotionCache } from "@/utils";
+import { CacheProvider } from "@emotion/react";
+import { Spin } from 'antd';
+import "antd/dist/reset.css";
 import { useEffect, useState } from "react";
+import { SWRConfig } from "swr";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

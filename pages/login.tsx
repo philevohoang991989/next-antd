@@ -1,9 +1,8 @@
 import { authApi } from '@/api-client';
-import { storageKeys } from "@/constants/storage-keys";
-import { getCookies, getCookie, setCookie, removeCookies } from 'cookies-next';
 import { EmptyLayout } from '@/components/layout';
+import { storageKeys } from "@/constants/storage-keys";
 import { Button, Form, Input } from 'antd';
-import { useEffect } from 'react';
+import { setCookie } from 'cookies-next';
 
 export default function Login () {
   const onFinish = async (values: any) => {
