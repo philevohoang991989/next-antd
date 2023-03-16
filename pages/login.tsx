@@ -5,7 +5,8 @@ import React from 'react';
 export default function Login () {
   const onFinish = async (values: any) => {
     console.log("Success:", values);
-    const datalogin = await authApi.login(values)
+    const datalogin: any  = await authApi.login(values)
+    localStorage.setItem('token', datalogin.accessToken)
     console.log({datalogin});
     
   };
