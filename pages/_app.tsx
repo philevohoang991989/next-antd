@@ -1,4 +1,5 @@
 import axiosClient from '@/api-client/axios-client'
+import { ConfigProvider } from 'antd'
 import { EmptyLayout } from '@/components/layout'
 import { AppPropsWithLayout } from '@/models'
 import '@/styles/globals.css'
@@ -37,9 +38,17 @@ export default function App({
             shouldRetryOnError: false
           }}
         >
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <ConfigProvider
+            theme={{
+              token: {
+                colorPrimary: '#009fff'
+              }
+            }}
+          >
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ConfigProvider>
         </SWRConfig>
       </CacheProvider>
     )
