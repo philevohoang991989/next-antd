@@ -18,3 +18,10 @@ export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
   emotionCache: EmotionCache
 }
+export type MenuListType = {
+  key: string
+  href: string
+  linkText: string
+  icon: JSX.Element
+  isShow?: boolean
+}

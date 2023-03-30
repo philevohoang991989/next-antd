@@ -6,7 +6,7 @@ import { createEmotionCache } from '@/utils'
 import { CacheProvider } from '@emotion/react'
 import { Spin } from 'antd'
 import 'antd/dist/reset.css'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SWRConfig } from 'swr'
 
 // Client-side cache, shared for the whole session of the user in the browser.
