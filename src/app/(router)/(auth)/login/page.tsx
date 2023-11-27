@@ -4,6 +4,7 @@ import { Button, Form, Input, message } from "antd";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React from "react";
+import styles from '../styles.module.scss'
 
 export default function Login() {
   const router = useRouter();
@@ -22,10 +23,11 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <Form onFinish={handleSubmit}>
+    <main className={styles.wapperPage}>
+      <Form onFinish={handleSubmit} layout="vertical" className={styles.wapperForm}>
         <Form.Item
           name="username"
+          label='Username'
           rules={[
             {
               pattern: regex.email,
@@ -35,11 +37,11 @@ export default function Login() {
         >
           <Input type="text" />
         </Form.Item>
-        <Form.Item name="password">
+        <Form.Item name="password" label='Password'>
           <Input.Password />
         </Form.Item>
         <Button htmlType="submit">Sign in</Button>
       </Form>
-    </div>
+    </main>
   );
 }
