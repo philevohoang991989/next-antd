@@ -12,7 +12,7 @@
   },
   "LocaleSwitcher": {
     "label": "Sprache ändern",
-    "locale": "{locale, select, de {vi VietNam} en {🇺🇸 English} other {Unbekannt}}"
+    "locale": "{locale, select, vi {vi VietNam} en {🇺🇸 English} other {Unbekannt}}"
   },
   "Manifest": {
     "description": "",
