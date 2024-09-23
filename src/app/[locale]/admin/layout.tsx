@@ -57,6 +57,7 @@ export default function AdminLayout({
         onCollapse={(value) => setCollapsed(value)}
       >
         <Menu
+        style={{height: "100%"}}
           onClick={onClick}
           defaultSelectedKeys={["8"]}
           defaultOpenKeys={["Team 2"]}

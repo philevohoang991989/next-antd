@@ -9,8 +9,11 @@ const theme: ThemeConfig = {
     components: {
         Button:{
             primaryShadow: 'none',
+        },
+        Layout:{
+            triggerBg:"#fff",
+            triggerColor: "#0D85A8"
         }
-       
     }
 };
 
