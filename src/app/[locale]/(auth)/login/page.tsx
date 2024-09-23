@@ -52,7 +52,7 @@ export default function Login() {
             >
                 <div className="px-4 py-16">
                     <div className="flex-col p-6 flex justify-center items-center space-y-1">
-                        <Image src={Logo} alt="logo"/>
+                        <Image src={Logo} alt="logo" priority />
                     </div>
                     <Form.Item<FieldType>
                         name="username"
