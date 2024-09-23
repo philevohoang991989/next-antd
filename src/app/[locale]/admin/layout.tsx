@@ -58,8 +58,8 @@ export default function AdminLayout({
       >
         <Menu
           onClick={onClick}
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
+          defaultSelectedKeys={["8"]}
+          defaultOpenKeys={["Team 2"]}
           mode="inline"
           items={items}
         />
