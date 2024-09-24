@@ -1,0 +1,1 @@
+export const regexValidateNumber = /^[0-9]+$/;

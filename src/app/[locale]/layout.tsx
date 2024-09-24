@@ -4,6 +4,7 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import "./globals.css";
 import { ConfigProvider } from "antd";
 import theme from "@/themes/themeConfig";
+import Providers from "@/components/providers";
 
 export default async function LocaleLayout({
   children,
@@ -19,11 +20,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <ConfigProvider theme={theme}>
-            <AntdRegistry>{children}</AntdRegistry>
-          </ConfigProvider>
-        </NextIntlClientProvider>
+        <Providers>
+          <NextIntlClientProvider messages={messages}>
+            <ConfigProvider theme={theme}>
+              <AntdRegistry>{children}</AntdRegistry>
+            </ConfigProvider>
+          </NextIntlClientProvider>
+        </Providers>
       </body>
     </html>
   );

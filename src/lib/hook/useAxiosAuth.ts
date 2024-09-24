@@ -1,7 +1,7 @@
 import { signOut, useSession } from "next-auth/react";
 // import { ApiAuth } from "../axios";
 import axios from "axios";
-import { message, notification } from "antd";
+import { notification } from "antd";
 
 const useApiAuth = () => {
   const { data: session } = useSession();

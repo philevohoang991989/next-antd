@@ -40,12 +40,13 @@ const auth: AuthOptions = {
       name: "Credentials",
       credentials: {
         otp: { label: "otp", type: "text", placeholder: "otp" },
+        userId:{ label: "otp", type: "number", placeholder: "otp" },
       },
       async authorize(credentials) {
         try {
           // Call your API to validate credentials
-          const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_API_URL}Authentication/otp/valid?otp=${credentials?.otp}`
+          const response = await axios.post(
+            `${process.env.NEXT_PUBLIC_API_URL}Authentication/otp/valid`,credentials
           );
 
           if (response && response.data) {
