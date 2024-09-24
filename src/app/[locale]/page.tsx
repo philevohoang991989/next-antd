@@ -1,9 +1,11 @@
 'use client'
 import { DashboardOutlined, UserOutlined } from "@ant-design/icons";
 import { Card } from "antd";
+import {useRouter} from "next/navigation";
 
 export default function HomePage() {
   // const t = useTranslations("HomePage");
+    const router = useRouter();
   const { Meta } = Card;
   return (
     <div className="flex justify-center items-center w-[100%] h-[100vh]">
@@ -18,6 +20,7 @@ export default function HomePage() {
                 style={{ fontSize: "3rem", color: "#0D85A8" }}
               />
             }
+            onClick={()=>router.push("/admin")}
           >
             <Meta title="Admin" description="" />
           </Card>
